@@ -1,0 +1,1 @@
+Webapp to remove tradition way of storing patient data in a big book. This app let's doctor i)storing info of patient, ii) keeping their visit record, iii) storing documents and medical reports in database and many more. Developed using angular and django, django-rest-framework

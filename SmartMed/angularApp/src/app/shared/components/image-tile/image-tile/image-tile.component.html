@@ -1,0 +1,5 @@
+<div class="imageTile">
+    <mat-progress-bar [style.display]="loading ? 'block' : 'none'" mode="buffer"></mat-progress-bar>
+    <img [ngClass]="loading ? 'hideImg' : 'showImg'" src="{{resource.photo}}" alt="Photo of {{resource.name}}" (load)="imageLoaded()">
+    <mat-card-content *ngIf="showName" class="name">{{ resource.name }}</mat-card-content>
+</div>

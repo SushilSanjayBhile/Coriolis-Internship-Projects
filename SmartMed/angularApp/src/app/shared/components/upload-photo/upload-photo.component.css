@@ -1,0 +1,77 @@
+.buttons-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.gradient {
+    background: linear-gradient(to top, #eee, #fff, #fff);
+}
+
+.position-center {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+}
+
+#photo_preview {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#photo_preview,
+webcam {
+    position: relative;
+}
+
+.flex-half {
+    width: calc(50% - 10px);
+}
+
+.preview_container {
+    border-bottom: 1px solid #666666;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.preview_container button {
+    position: absolute;
+    bottom: 20px;
+    transform: translate(-50%, 0);
+}
+
+.preview_container button.left {
+    left: 30px;
+}
+
+.preview_container button.center {
+    left: 50%;
+}
+
+.preview_container button.right {
+    left: calc(100% - 30px);
+}
+
+#background {
+    display: flex;
+    position: absolute;
+    z-index: 0;
+    background: transparent;
+    min-height: 100%;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#content {
+    position: absolute;
+    z-index: 1;
+}
+
+#bg-text {
+    color: lightgrey;
+    font-size: 12px;
+    padding: 20px;
+}

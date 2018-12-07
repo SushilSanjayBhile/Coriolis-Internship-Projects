@@ -1,0 +1,50 @@
+.name {
+    width: calc(100% - 20px);
+    height: 17px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 10px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #333;
+    opacity: .85;
+    background: white;
+    /*
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 1));
+    */
+    margin: 0px;
+}
+
+img {
+    height: 100%;
+    width: auto;
+    opacity: 0;
+}
+
+.imageTile {
+    display: flex;
+    flex: 1;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+}
+
+.imageTile .mat-progress-bar {
+    width: 50px;
+    margin: 0 60px 0 30px;
+    cursor: pointer;
+}
+
+.hideImg {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}
+
+.showImg {
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    opacity: 1;
+}

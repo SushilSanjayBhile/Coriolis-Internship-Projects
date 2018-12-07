@@ -1,0 +1,8 @@
+{
+    "/clinic/*": {
+        "target": "http://172.20.4.170:9001",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

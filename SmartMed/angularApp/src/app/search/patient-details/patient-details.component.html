@@ -1,0 +1,73 @@
+<div class="mat-elevation-z8">
+    <div *ngIf="patient">
+        <mat-toolbar>
+            <a mat-mini-fab [routerLink]="['/patients', 'search']">
+                <mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon>
+            </a>
+            <span class="spacer">Patient Information</span>
+            <a mat-raised-button color="primary" [routerLink]="['/visit', 'add', 'patient', this.patient.id]">
+                <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon> Visit
+            </a>
+        </mat-toolbar>
+        <mat-divider></mat-divider>
+        <h2 class="name">{{ patient.name }}</h2>
+        <div class="flex-container">
+            <div class="info">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let p of patientProps">
+                        <mat-icon mat-list-icon>{{p.icon}}</mat-icon>
+                        <h4 mat-line>{{p.label}}</h4>
+                        <p mat-line [ngClass]="p.key">{{patient[p.key]}}</p>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <mat-card class="card">
+                <app-image-tile [resource]="patient"></app-image-tile>
+            </mat-card>
+        </div>
+        <mat-toolbar>
+            <mat-toolbar-row>
+                <span>Visits</span>
+                <span class="spacer"></span>
+                <!--
+            <button mat-icon-button (click)="toggleSearch()">
+                  <mat-icon aria-label="add candidate">search</mat-icon>
+              </button>
+            <a mat-icon-button [routerLink]="['/visit', 'add', 'patient', this.patientId]">
+                <mat-icon aria-label="schedule interview">add</mat-icon>
+            </a>
+            -->
+            </mat-toolbar-row>
+            <mat-toolbar-row *ngIf="filter">
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                </mat-form-field>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <mat-table [hidden]="!patient" #table [dataSource]="dataSource" matSort matSortActive="timestamp" matSortDisableClear matSortDirection="desc" aria-label="Visits">
+
+        <ng-container matColumnDef="diagnosis">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Diagnosis</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.diagnosis}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="timestamp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.timestamp | date : 'short' }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [length]="resultsLength" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]">
+    </mat-paginator>
+</div>

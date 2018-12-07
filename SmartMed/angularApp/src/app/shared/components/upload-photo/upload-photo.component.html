@@ -1,0 +1,26 @@
+<div class="preview_container" [ngClass]="{gradient: !photoSelected && !Webcam}">
+    <div id="background">
+        <p id="bg-text">Upload a passport size photo taken on a white background</p>
+    </div>
+    <div class="progress-bar position-center" *ngIf="loadingPreview">
+        <mat-progress-bar [mode]="type" [value]="progressPreview"></mat-progress-bar>
+    </div>
+    <img *ngIf="photoSelected" id="photo_preview" src="{{ photoPreview }}" title="upload passport size photo">
+
+    <!-- Source Cam -->
+    <webcam *ngIf="Webcam" [width]="streamWidth" [height]="streamHeight" (imageCapture)="getImage($event)" [trigger]="clickEventObservable"></webcam>
+    <!-- enable webcam btn -->
+    <button class="right" [disabled]="!camera_btn" style="left: calc(100% - 30px);" mat-mini-fab color="default" type="button" (click)="activateWebCam()" title="upload passport size photo">
+      <mat-icon>photo_camera</mat-icon> 
+  </button>
+    <!-- click webcam btn -->
+    <button class="center" [disabled]="!camera_click_btn" mat-mini-fab color="default" (click)="clickWebCam()" type="button" title="click">
+      <mat-icon>camera</mat-icon> 
+  </button>
+
+    <!-- Source file -->
+    <input #photoInput type="file" id="photo_file" (change)="onFileChange($event)" style="display:none;">
+    <button class="left" [disabled]="!file_upload_btn" mat-mini-fab color="default" type="button" (click)="clickFileUpload(photoInput)" title="upload passport size photo">
+      <mat-icon>file_upload</mat-icon> 
+  </button>
+</div>

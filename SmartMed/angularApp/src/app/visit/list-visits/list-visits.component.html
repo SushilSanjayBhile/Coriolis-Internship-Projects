@@ -1,0 +1,49 @@
+<div class="mat-elevation-z8">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <span>Visits</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="toggleSearch()">
+              <mat-icon aria-label="add candidate">search</mat-icon>
+          </button>
+            <a mat-icon-button [routerLink]="['/visit', 'add', 'patient', this.patientId]">
+                <mat-icon aria-label="schedule interview">add</mat-icon>
+            </a>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf="filter">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+            </mat-form-field>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+        <!-- Id Column -->
+        <ng-container matColumnDef="patient">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Patient</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.patient}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="diagnosis">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Diagnosis</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.diagnosis}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="timestamp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.timestamp | date : 'short' }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]">
+    </mat-paginator>
+</div>

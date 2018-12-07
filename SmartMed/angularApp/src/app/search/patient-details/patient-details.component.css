@@ -1,0 +1,47 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.card {
+    width: auto;
+    height: 250px;
+    text-align: center;
+    padding: 0px;
+    margin: 0 16px 16px 0;
+}
+
+.info {
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+h2 {
+    padding: 0 30px 0 30px;
+    margin-bottom: 4px;
+}
+
+.button-row {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.info .mat-list .mat-list-item .mat-line {
+    white-space: normal;
+}
+
+.info h4 {
+    font-weight: lighter;
+}
+
+.info .mat-list {
+    max-width: 550px;
+}
+
+.info .mat-list .mat-list-item {
+    min-width: 275px;
+    display: inline-block;
+}

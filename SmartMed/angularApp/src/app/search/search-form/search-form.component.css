@@ -1,0 +1,32 @@
+.form,
+.full-width {
+    max-width: 600px;
+    width: 100%;
+}
+
+.full-width-btn {
+    max-width: 600px;
+    width: calc(100% - 132px);
+}
+
+.addBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.newBtn {
+    margin-left: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-screen {
+    height: 100%;
+    width: 100%;
+}

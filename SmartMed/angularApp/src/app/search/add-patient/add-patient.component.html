@@ -1,0 +1,77 @@
+<div class="mat-elevation-z8">
+    <mat-toolbar>
+        <a mat-mini-fab [routerLink]="['/']">
+            <mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon>
+        </a>
+        <span class="spacer">New Patient</span>
+        <button mat-raised-button color="primary" (click)="addPatient()" disabled="{{!this.patientForm.valid}}">Save</button>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+    <div class='flex-container'>
+        <div class="info">
+
+            <form [formGroup]="patientForm" class="example-form">
+                <mat-grid-list cols="2" gutterSize="25" rowHeight="80px">
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="name" #name maxlength=64 placeholder="Patient Name" required>
+                            <mat-hint align="end">{{name.value.length}} / 64</mat-hint>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="1" [rowspan]="3">
+                        <app-upload-photo class="preview_container" [photo]="getPhoto"></app-upload-photo>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <mat-select placeholder="Gender" formControlName="gender">
+                                <mat-option *ngFor="let g of genders" [value]="g.value">
+                                    {{ g.text }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="age" maxlength=3 placeholder="Age">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="phone" maxlength=13 placeholder="Phone number" required>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]=1 [rowspan]=2>
+                        <mat-form-field class="full-width">
+                            <textarea [style.height]="'121px'" matInput formControlName="address" maxlength="256" placeholder="Address"></textarea>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="relations" maxlength=13 placeholder="Relation">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="aadhar_number" maxlength=13 placeholder="aadhar_number" required>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile class="form-tile" [colspan]=1 [rowspan]=1>
+                        <mat-form-field class="full-width">
+                            <input matInput formControlName="file_no" maxlength=13 placeholder="File Number">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                </mat-grid-list>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<!-- Search output -->
+<div class="flex-container">
+    <mat-card class="card" *ngFor="let patient of patients" (click)="gotoDetails(patient.id)">
+        <app-image-tile [resource]="patient" [showName]="true"></app-image-tile>
+    </mat-card>
+</div>

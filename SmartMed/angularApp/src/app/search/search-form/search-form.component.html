@@ -1,0 +1,11 @@
+<div class="flex-container full-screen">
+    <form [formGroup]="searchPatientForm" class="form">
+        <mat-form-field class="full-width-btn">
+            <input matInput placeholder="Search Patient By Name" aria-label="Patients Name" formControlName="name" autocomplete="off">
+        </mat-form-field>
+        <a mat-raised-button class="newBtn" color="primary" [routerLink]="['/patient/add']">Add Patient</a>
+    </form>
+</div>
+<p *ngIf="noResults">No results</p>
+<p *ngIf="moreResults">too many results</p>
+<app-search-results [patients]="patients"></app-search-results>

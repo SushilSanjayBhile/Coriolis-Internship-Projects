@@ -1,0 +1,6 @@
+[
+    { "name": "One", "color": "lightblue" },
+    { "name": "Two", "color": "lightgreen" },
+    { "name": "Three", "color": "lightpink" },
+    { "name": "Four", "color": "#DDBDF1" }
+]
